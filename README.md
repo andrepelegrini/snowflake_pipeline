@@ -64,3 +64,20 @@ flowchart LR
   S --> Q[STG.INVALID_RECORDS]
   R --> AUD[META.FILE_LOAD_AUDIT]
   S --> DQ[META.DQ_RESULTS]
+```
+
+## Key Assumptions
+
+1. batch_date is extracted from the filename suffix <YYYY-MM-DD>.
+
+2. Merchant files represent the latest merchant attributes as-of batch_date.
+
+3. “Default” is not explicitly provided; if needed for reporting, define a proxy:
+
+    * Example proxy: a disbursement is “defaulted” if any payment has days_from_due >= 30
+
+    * This threshold is configurable based on credit policy.
+
+4. Portfolio balance is principal-only unless interest accrual rules are introduced:
+
+    * <outstanding_principal = disbursed_amount - sum(payments)>
