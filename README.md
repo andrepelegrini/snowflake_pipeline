@@ -68,7 +68,7 @@ flowchart LR
 
 ## Key Assumptions
 
-1. batch_date is extracted from the filename suffix <YYYY-MM-DD>.
+1. batch_date is extracted from the filename suffix `YYYY-MM-DD`.
 
 2. Merchant files represent the latest merchant attributes as-of batch_date.
 
@@ -80,4 +80,19 @@ flowchart LR
 
 4. Portfolio balance is principal-only unless interest accrual rules are introduced:
 
-    * <outstanding_principal = disbursed_amount - sum(payments)>
+    * `outstanding_principal = disbursed_amount - sum(payments)`
+
+## Question needing team clarification
+1. What is the official definition of **default**?
+    * Days Past Due threshold (30/60/90)? Charge-off? Restructuring?
+2. Are there **multiple payments per disbursement** only (1:many), or can a payment be allocated across multiple disbursements?
+3. Can **IDs change** (e.g. different payment_id) or are they immutable?
+4. Are merchant files true **ful snapshots** or partial updates?
+5. For reporting:
+    * Shold KPIs be based on **event dates** (disbursement_date) or **processing dates** (batch_date)?
+6. Which merchant attributes should be treated as slowly changing (SCD2) vs overwritten(SCD1)?
+7. Any business rules around:
+    * excluding test merchants,
+    * handling refunds/reversals,
+    * chargeback payments,
+    * negative amounts or adjustments?
