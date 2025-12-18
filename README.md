@@ -96,3 +96,30 @@ flowchart LR
     * handling refunds/reversals,
     * chargeback payments,
     * negative amounts or adjustments?
+
+## Dashboard (Streamlit in Snowflake)
+
+The analytics dashboard is implemented as a **Streamlit app hosted inside Snowflake**. It reads directly from the curated marts in `R2_LENDING.MARTS`:
+
+- `MART_DAILY_OVERVIEW` — daily funnel KPIs (applications, approvals, approval rate, disbursed vs. paid)
+- `MART_MERCHANT_PERFORMANCE_CURRENT` — merchant scorecard (current snapshot only)
+- `MART_COLLECTIONS_AGING` — collections / delinquency proxy by DPD bucket
+
+**App link:** https://app.snowflake.com/rptathp/jr59504/#/streamlit-apps/R2_LENDING.MARTS.Q6J8A4VVD6PCGA67
+
+### Access & sharing
+This Streamlit app is secured by Snowflake and requires a valid **Snowflake username/password** in the same account, with permissions to query `R2_LENDING.MARTS`.  
+For reviewers without access, screenshots are provided below.
+
+### Screenshots
+
+**Overview**
+![Dashboard overview](docs/screenshots/streamlit1.png)
+
+**Merchant performance**
+![Merchant performance](docs/screenshots/streamlit2.png)
+
+**Collections aging**
+![Collections aging](docs/screenshots/streamlit3.png)
+
+
