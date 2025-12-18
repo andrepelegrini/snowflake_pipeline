@@ -82,7 +82,7 @@ flowchart LR
 
     * `outstanding_principal = disbursed_amount - sum(payments)`
 
-## Question needing team clarification
+## Questions needing team clarification
 1. What is the official definition of **default**?
     * Days Past Due threshold (30/60/90)? Charge-off? Restructuring?
 2. Are there **multiple payments per disbursement** only (1:many), or can a payment be allocated across multiple disbursements?
