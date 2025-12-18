@@ -122,7 +122,7 @@ For reviewers without access, screenshots are provided below.
 **Collections aging**
 ![Collections aging](docs/screenshots/streamlit3.png)
 
-````md
+
 ---
 
 ## Runbook — Execution Order (End-to-End)
@@ -381,8 +381,4 @@ Business impact:
 * `avg_days_from_due`: average DPD in the bucket
 
 ---
-
-```
-::contentReference[oaicite:0]{index=0}
-```
 
